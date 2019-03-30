@@ -5,6 +5,7 @@ import Silence from "./views/Silence.vue";
 import Signup from "./views/Signup.vue";
 import Login from "./views/Login.vue";
 import Logout from "./views/Logout.vue";
+import ItemsNew from "./views/ItemsNew.vue";
 
 Vue.use(Router);
 
@@ -28,6 +29,11 @@ export default new Router({
       // which is lazy-loaded when the route is visited.
       component: () =>
         import(/* webpackChunkName: "about" */ "./views/About.vue")
+    },
+    {
+      path: "/items/new",
+      name: "items-new",
+      component: ItemsNew
     },
     {
       path: "/signup",

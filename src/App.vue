@@ -27,6 +27,9 @@
           <li class="nav-item">
             <a class="nav-link" href="/#/silence">Silence</a>
           </li>
+          <!--           <li class="nav-item">
+            <a class="nav-link" href="/#/items/new">New Item</a>
+          </li> -->
           <li class="nav-item">
             <a class="nav-link" href="/#/signup">Signup</a>
           </li>
