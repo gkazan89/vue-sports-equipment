@@ -13,7 +13,7 @@
 
     <!-- list already works -->
     <h2>Items Available</h2>
-    <div v-for="item in items" class="item">
+    <!--     <div v-for="item in items" class="item">
       <p>{{ item.name }}</p>
       <p>{{ item.sport }}</p>
       <p>{{ item.price }}</p>
@@ -27,8 +27,6 @@
         <button v-on:click="deleteItem(item)">Delete Item</button>
       </div>
       <div>
-        <!--         <a v-bind:href="'/#/items/' + item.id">More info</a> -->
-
         <button
           type="button"
           class="btn btn-primary"
@@ -87,18 +85,21 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
 
-    <div class="row"
+    <div class="row">
       <div v-for="item in items" class="col-md-4">
         <div class="card">
-          <img class="card-img-top" v-bind:src="item.images[0]" alt = "Card image cap">
+          <img
+            class="card-img-top"
+            v-bind:src="item.images[0]"
+            alt="Card image cap"
+          />
           <div class="card-body">
-            <h5 class="card-title">{{item.name}}</h5>
+            <h5 class="card-title">{{ item.name }}</h5>
             <p class="card-text">
-              Sport: {{item.sport}}
-              Price: {{item.price}}
-              Brand: {{item.supplier_name}}
+              Sport: {{ item.sport }} Price: {{ item.price }} Brand:
+              {{ item.supplier_name }}
             </p>
             <div>
               <!--         <a v-bind:href="'/#/items/' + item.id">More info</a> -->
