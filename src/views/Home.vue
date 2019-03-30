@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="home container">
     <h1>{{ message }}</h1>
 
     <h2>New Item</h2>
@@ -11,6 +11,7 @@
       <button v-on:click="createItem()">Create Item</button>
     </div>
 
+    <!-- list already works -->
     <h2>Items Available</h2>
     <div v-for="item in items" class="item">
       <p>{{ item.name }}</p>
@@ -87,6 +88,83 @@
         </div>
       </div>
     </div>
+
+    <div class="row"
+      <div v-for="item in items" class="col-md-4">
+        <div class="card">
+          <img class="card-img-top" v-bind:src="item.images[0]" alt = "Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">{{item.name}}</h5>
+            <p class="card-text">
+              Sport: {{item.sport}}
+              Price: {{item.price}}
+              Brand: {{item.supplier_name}}
+            </p>
+            <div>
+              <!--         <a v-bind:href="'/#/items/' + item.id">More info</a> -->
+
+              <button
+                type="button"
+                class="btn btn-primary"
+                data-toggle="modal"
+                data-target="#exampleModal"
+                v-on:click="currentItem = item"
+              >
+                Launch Demo Modal
+              </button>
+            </div>
+            <div
+              class="modal fade"
+              id="exampleModal"
+              tabindex="-1"
+              role="dialog"
+              aria-labelledby="exampleModalLabel"
+              aria-hidden="true"
+            >
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">
+                      {{ currentItem.name }}
+                    </h5>
+                    <button
+                      type="button"
+                      class="close"
+                      data-dismiss="modal"
+                      aria-label="Close"
+                    >
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    {{ currentItem.sport }}
+                  </div>
+                  <img v-bind:src="item.images[0]" />
+                  <div class="modal-body">
+                    {{ currentItem.price }}
+                  </div>
+                  <div class="modal-body">
+                    {{ currentItem.supplier_name }}
+                  </div>
+                  <div class="modal-footer">
+                    <button
+                      type="button"
+                      class="btn btn-secondary"
+                      data-dismiss="modal"
+                    >
+                      Close
+                    </button>
+                    <button type="button" class="btn btn-primary">
+                      Save changes
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -97,8 +175,8 @@ img {
 }
 
 .item {
-  border: solid gray;
   margin-bottom: 1.5rem;
+  border: solid gray 0.5px;
 }
 </style>
 

@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav
+      class="navbar navbar-dark bg-dark navbar-expand-lg navbar-light bg-light"
+    >
       <a class="navbar-brand" href="#">Menu</a>
       <button
         class="navbar-toggler"
