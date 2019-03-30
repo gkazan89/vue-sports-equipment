@@ -26,7 +26,65 @@
         <button v-on:click="deleteItem(item)">Delete Item</button>
       </div>
       <div>
-        <a v-bind:href="'/#/items/' + item.id">More info</a>
+        <!--         <a v-bind:href="'/#/items/' + item.id">More info</a> -->
+
+        <button
+          type="button"
+          class="btn btn-primary"
+          data-toggle="modal"
+          data-target="#exampleModal"
+          v-on:click="currentItem = item"
+        >
+          Launch Demo Modal
+        </button>
+      </div>
+      <div
+        class="modal fade"
+        id="exampleModal"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">
+                {{ currentItem.name }}
+              </h5>
+              <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              {{ currentItem.sport }}
+            </div>
+            <img v-bind:src="item.images[0]" />
+            <div class="modal-body">
+              {{ currentItem.price }}
+            </div>
+            <div class="modal-body">
+              {{ currentItem.supplier_name }}
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-dismiss="modal"
+              >
+                Close
+              </button>
+              <button type="button" class="btn btn-primary">
+                Save changes
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -56,7 +114,8 @@ export default {
       sport: "",
       price: "",
       supplier_id: "",
-      updatedName: ""
+      updatedName: "",
+      currentItem: {}
     };
   },
   created: function() {
