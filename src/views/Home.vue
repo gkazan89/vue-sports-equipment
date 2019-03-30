@@ -1,6 +1,16 @@
 <template>
   <div class="home">
     <h1>{{ message }}</h1>
+
+    <h2>New Item</h2>
+    <div>
+      name: <input type="text" v-model="name" /> sport:
+      <input type="text" v-model="sport" /> price:
+      <input type="text" v-model="price" /> supplier_id:
+      <input type="text" v-model="supplier_id" />
+      <button v-on:click="createItem()">Create Item</button>
+    </div>
+
     <h2>Items Available</h2>
     <div v-for="item in items" class="item">
       <p>{{ item.name }}</p>
@@ -31,7 +41,11 @@ export default {
   data: function() {
     return {
       message: "Welcome to Sports Equipment App",
-      items: []
+      items: [],
+      name: "",
+      sport: "",
+      price: "",
+      supplier_id: ""
     };
   },
   created: function() {
@@ -42,7 +56,22 @@ export default {
       }.bind(this)
     );
   },
-  methods: {},
+  methods: {
+    createItem: function() {
+      var params = {
+        name: this.name,
+        sport: this.sport,
+        price: this.price,
+        supplier_id: this.supplier_id
+      };
+      axios.post("http://localhost:3000/api/items", params).then(
+        function(response) {
+          console.log("RESPONSE: ", response);
+          this.items.push(response.data);
+        }.bind(this)
+      );
+    }
+  },
   computed: {}
 };
 </script>
