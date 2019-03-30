@@ -18,6 +18,13 @@
       <p>{{ item.price }}</p>
       <p>{{ item.supplier_name }}</p>
       <img v-bind:src="item.images[0]" />
+      <div>
+        Updated Name: <input type="text" v-model="updatedName" />
+        <button v-on:click="updateItem(item)">Update Item</button>
+      </div>
+      <div>
+        <button v-on:click="deleteItem(item)">Delete Item</button>
+      </div>
     </div>
   </div>
 </template>
@@ -45,7 +52,8 @@ export default {
       name: "",
       sport: "",
       price: "",
-      supplier_id: ""
+      supplier_id: "",
+      updatedName: ""
     };
   },
   created: function() {
@@ -68,6 +76,27 @@ export default {
         function(response) {
           console.log("RESPONSE: ", response);
           this.items.push(response.data);
+        }.bind(this)
+      );
+    },
+    updateItem: function(inputItem) {
+      console.log(this.updatedName, inputItem.id);
+      var params = {
+        name: this.updatedName
+      };
+      axios
+        .patch("http://localhost:3000/api/items/" + inputItem.id, params)
+        .then(function(response) {
+          console.log(response.data);
+          inputItem.name = response.data.name;
+        });
+    },
+    deleteItem: function(inputItem) {
+      axios.delete("http://localhost:3000/api/items/" + inputItem.id).then(
+        function(response) {
+          console.log(response.data);
+          var index = this.items.indexOf(inputItem);
+          this.items.splice(index, 1);
         }.bind(this)
       );
     }
