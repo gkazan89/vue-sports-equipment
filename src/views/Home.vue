@@ -7,7 +7,6 @@
       <p>{{ item.sport }}</p>
       <p>{{ item.price }}</p>
       <p>{{ item.supplier_name }}</p>
-      <p>{{ item.images[0] }}</p>
       <img v-bind:src="item.images[0]" />
     </div>
   </div>
