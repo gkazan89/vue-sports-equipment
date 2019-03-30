@@ -25,6 +25,9 @@
       <div>
         <button v-on:click="deleteItem(item)">Delete Item</button>
       </div>
+      <div>
+        <a v-bind:href="'/#/items/' + item.id">More info</a>
+      </div>
     </div>
   </div>
 </template>
@@ -72,7 +75,7 @@ export default {
         price: this.price,
         supplier_id: this.supplier_id
       };
-      axios.post("http://localhost:3000/api/items", params).then(
+      axios.post("http://localhost:3000/api/items/", params).then(
         function(response) {
           console.log("RESPONSE: ", response);
           this.items.push(response.data);
