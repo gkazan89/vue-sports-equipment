@@ -98,8 +98,9 @@
           <div class="card-body">
             <h5 class="card-title">{{ item.name }}</h5>
             <p class="card-text">
-              Sport: {{ item.sport }} Price: {{ item.price }} Brand:
-              {{ item.supplier_name }}
+              <p>Sport: {{ item.sport }}</p> 
+              <p>Price: {{ item.price | currency }}</p>
+              <p>Brand: {{ item.supplier_name }}</p>
             </p>
             <div>
               <!--         <a v-bind:href="'/#/items/' + item.id">More info</a> -->
@@ -142,7 +143,7 @@
                   </div>
                   <img v-bind:src="item.images[0]" />
                   <div class="modal-body">
-                    {{ currentItem.price }}
+                    {{ currentItem.price | currency }}
                   </div>
                   <div class="modal-body">
                     {{ currentItem.supplier_name }}
