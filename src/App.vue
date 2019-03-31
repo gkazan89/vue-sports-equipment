@@ -24,10 +24,10 @@
             >
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/#/about">About</a>
+            <a class="nav-link" href="/#/about">Orders</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/#/silence">Silence</a>
+            <a class="nav-link" href="/#/silence">Shopping Cart</a>
           </li>
           <!--           <li class="nav-item">
             <a class="nav-link" href="/#/items/new">New Item</a>
