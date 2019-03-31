@@ -11,82 +11,7 @@
       <button v-on:click="createItem()">Create Item</button>
     </div>
 
-    <!-- list already works -->
     <h2>Items Available</h2>
-    <!--     <div v-for="item in items" class="item">
-      <p>{{ item.name }}</p>
-      <p>{{ item.sport }}</p>
-      <p>{{ item.price }}</p>
-      <p>{{ item.supplier_name }}</p>
-      <img v-bind:src="item.images[0]" />
-      <div>
-        Updated Name: <input type="text" v-model="updatedName" />
-        <button v-on:click="updateItem(item)">Update Item</button>
-      </div>
-      <div>
-        <button v-on:click="deleteItem(item)">Delete Item</button>
-      </div>
-      <div>
-        <button
-          type="button"
-          class="btn btn-primary"
-          data-toggle="modal"
-          data-target="#exampleModal"
-          v-on:click="currentItem = item"
-        >
-          Launch Demo Modal
-        </button>
-      </div>
-      <div
-        class="modal fade"
-        id="exampleModal"
-        tabindex="-1"
-        role="dialog"
-        aria-labelledby="exampleModalLabel"
-        aria-hidden="true"
-      >
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">
-                {{ currentItem.name }}
-              </h5>
-              <button
-                type="button"
-                class="close"
-                data-dismiss="modal"
-                aria-label="Close"
-              >
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              {{ currentItem.sport }}
-            </div>
-            <img v-bind:src="item.images[0]" />
-            <div class="modal-body">
-              {{ currentItem.price }}
-            </div>
-            <div class="modal-body">
-              {{ currentItem.supplier_name }}
-            </div>
-            <div class="modal-footer">
-              <button
-                type="button"
-                class="btn btn-secondary"
-                data-dismiss="modal"
-              >
-                Close
-              </button>
-              <button type="button" class="btn btn-primary">
-                Save changes
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div> -->
-
     <div class="row">
       <div v-for="item in items" class="col-md-4">
         <div class="card">
@@ -112,7 +37,7 @@
                 data-target="#exampleModal"
                 v-on:click="currentItem = item"
               >
-                Launch Demo Modal
+                More Information
               </button>
             </div>
             <div
@@ -127,7 +52,7 @@
                 <div class="modal-content">
                   <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">
-                      {{ currentItem.name }}
+                      Add {{ currentItem.name }} to Cart
                     </h5>
                     <button
                       type="button"
@@ -143,10 +68,13 @@
                   </div>
                   <img v-bind:src="item.images[0]" />
                   <div class="modal-body">
-                    {{ currentItem.price | currency }}
+                    Price: {{ currentItem.price | currency }}
                   </div>
                   <div class="modal-body">
                     {{ currentItem.supplier_name }}
+                  </div>
+                  <div class="modal-body">
+                    Quantity: <input type="text" v-model="quantity" />
                   </div>
                   <div class="modal-footer">
                     <button
@@ -156,8 +84,9 @@
                     >
                       Close
                     </button>
-                    <button type="button" class="btn btn-primary">
-                      Save changes
+                    <button type="button" class="btn btn-primary"
+                    data-dismiss="modal">
+                      Add to Cart
                     </button>
                   </div>
                 </div>
