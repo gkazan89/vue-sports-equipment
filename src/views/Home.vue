@@ -85,7 +85,7 @@
                       Close
                     </button>
                     <button type="button" class="btn btn-primary"
-                    data-dismiss="modal" v-on:click="addToCart(item)">
+                    data-dismiss="modal" v-on:click="addToCart(currentItem)">
                       Add to Cart
                     </button>
                   </div>
@@ -172,10 +172,9 @@ export default {
         }.bind(this)
       );
     },
-    addToCart: function(item) {
-      console.log(item);
+    addToCart: function(currentItem) {
       var params = {
-        item_id: item.id,
+        item_id: currentItem.id,
         quantity: this.quantity
       };
       axios.post("http://localhost:3000/api/carted_items/", params).then(
