@@ -85,7 +85,7 @@
                       Close
                     </button>
                     <button type="button" class="btn btn-primary"
-                    data-dismiss="modal">
+                    data-dismiss="modal" v-on:click="addToCart(item)">
                       Add to Cart
                     </button>
                   </div>
@@ -124,7 +124,8 @@ export default {
       price: "",
       supplier_id: "",
       updatedName: "",
-      currentItem: {}
+      currentItem: {},
+      quantity: ""
     };
   },
   created: function() {
@@ -170,6 +171,19 @@ export default {
           this.items.splice(index, 1);
         }.bind(this)
       );
+    },
+    addToCart: function(item) {
+      console.log(item);
+      var params = {
+        item_id: item.id,
+        quantity: this.quantity
+      };
+      axios.post("http://localhost:3000/api/carted_items/", params).then(
+        function(response) {
+          console.log("RESPONSE: ", response);
+        }.bind(this)
+      );
+      this.quantity = "";
     }
   },
   computed: {}
