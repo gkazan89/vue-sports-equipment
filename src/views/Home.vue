@@ -1,5 +1,17 @@
 <template>
   <div class="home container">
+    <div class="alert alert-success" v-if="visible">
+      Item Added to Shopping Cart
+      <button
+        type="button"
+        class="close"
+        data-dismiss="modal"
+        aria-label="Close"
+        v-on:click="toggleVisible()"
+      >
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
     <h1>{{ message }}</h1>
 
     <h2>New Item</h2>
@@ -125,7 +137,8 @@ export default {
       supplier_id: "",
       updatedName: "",
       currentItem: {},
-      quantity: ""
+      quantity: "",
+      visible: false,
     };
   },
   created: function() {
@@ -183,6 +196,10 @@ export default {
         }.bind(this)
       );
       this.quantity = "";
+      this.visible = true;
+    },
+    toggleVisible: function() {
+      this.visible = !this.visible;
     }
   },
   computed: {}

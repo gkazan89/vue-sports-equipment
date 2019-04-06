@@ -1,5 +1,18 @@
 <template>
   <div class="about container">
+    <div class="alert alert-success" v-if="visible">
+      Order Placed!
+      <button
+        type="button"
+        class="close"
+        data-dismiss="modal"
+        aria-label="Close"
+        v-on:click="toggleVisible()"
+      >
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+
     <h1>Shopping Cart</h1>
     <div>
       <div v-for="carted_item in carted_items">
@@ -38,7 +51,8 @@ export default {
       item_id: "",
       quantity: "",
       status: "",
-      componentKey: 0
+      componentKey: 0,
+      visible: false
     };
   },
   created: function() {
@@ -57,6 +71,10 @@ export default {
         }.bind(this)
       );
       this.carted_items = [];
+      this.visible = true;
+    },
+    toggleVisible: function() {
+      this.visible = !this.visible;
     }
   },
   computed: {}
