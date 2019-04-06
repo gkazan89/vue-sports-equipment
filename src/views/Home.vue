@@ -14,14 +14,14 @@
     </div>
     <h1>{{ message }}</h1>
 
-    <h2>New Item</h2>
+<!--     <h2>New Item</h2>
     <div>
       name: <input type="text" v-model="name" /> sport:
       <input type="text" v-model="sport" /> price:
       <input type="text" v-model="price" /> supplier_id:
       <input type="text" v-model="supplier_id" />
       <button v-on:click="createItem()">Create Item</button>
-    </div>
+    </div> -->
 
     <h2>Items Available</h2>
     <div class="row">

@@ -15,18 +15,17 @@
 
     <h1>Shopping Cart</h1>
     <div>
-      <div v-for="carted_item in carted_items">
+      <div v-for="item in carted_items">
         <!--         <div class="card">
           <div class="card-text">
             <p>Item ID: {{ carted_item.item_id }}</p>
             <p>Quantity: {{ carted_item.quantity }}</p>
           </div>
         </div> -->
-        <div v-for="inner in carted_item" :key="componentKey">
-          <p>Item ID: {{ inner.item_id }}</p>
-          <p>Quantity: {{ inner.quantity }}</p>
-          <p>Status: {{ inner.status }}</p>
-        </div>
+
+        <p>Item: {{ item.item }}</p>
+        <p>Quantity: {{ item.quantity }}</p>
+        <p>Status: {{ item.status }}</p>
       </div>
       <button
         type="button"
@@ -48,7 +47,7 @@ export default {
   data: function() {
     return {
       carted_items: [],
-      item_id: "",
+      item: "",
       quantity: "",
       status: "",
       componentKey: 0,
@@ -62,6 +61,7 @@ export default {
         this.carted_items = response.data;
       }.bind(this)
     );
+    console.log(this);
   },
   methods: {
     ordersCreate: function() {
