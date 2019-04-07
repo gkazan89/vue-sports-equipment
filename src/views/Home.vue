@@ -86,7 +86,7 @@
                     {{ currentItem.supplier_name }}
                   </div>
                   <div class="modal-body">
-                    Quantity: <input type="text" v-model="quantity" />
+                    Quantity: <input type="number" v-model="quantity"/>
                   </div>
                   <div class="modal-footer">
                     <button
@@ -186,6 +186,9 @@ export default {
       );
     },
     addToCart: function(currentItem) {
+      if (this.quantity < 1) {
+        this.quantity = 0;
+      }
       var params = {
         item_id: currentItem.id,
         quantity: this.quantity
