@@ -78,7 +78,6 @@
                   <div class="modal-body">
                     {{ currentItem.sport }}
                   </div>
-                  <img v-bind:src="item.images[0]" />
                   <div class="modal-body">
                     Price: {{ currentItem.price | currency }}
                   </div>
