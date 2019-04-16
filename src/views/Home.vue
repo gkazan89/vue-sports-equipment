@@ -75,6 +75,7 @@
                       <span aria-hidden="true">&times;</span>
                     </button>
                   </div>
+                  <img v-bind:src="currentItem.images"/>
                   <div class="modal-body">
                     {{ currentItem.sport }}
                   </div>
@@ -112,8 +113,8 @@
 
 <style>
 img {
-  max-height: 200px;
-  max-width: 200px;
+  max-height: 15rem;
+  max-width: 15rem; 
 }
 
 .item {
@@ -202,6 +203,9 @@ export default {
     },
     toggleVisible: function() {
       this.visible = !this.visible;
+    },
+    funk: function(currentItem) {
+      console.log(currentItem);
     }
   },
   computed: {}
