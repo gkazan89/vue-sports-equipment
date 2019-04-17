@@ -55,7 +55,7 @@ export default {
     };
   },
   created: function() {
-    axios.get("http://localhost:3000/api/carted_items").then(
+    axios.get("/api/carted_items").then(
       function(response) {
         console.log(response);
         this.carted_items = response.data;
@@ -65,7 +65,7 @@ export default {
   },
   methods: {
     ordersCreate: function() {
-      axios.post("http://localhost:3000/api/orders/").then(
+      axios.post("/api/orders/").then(
         function(response) {
           console.log("RESPONSE: ", response);
         }.bind(this)
