@@ -142,7 +142,7 @@ export default {
     };
   },
   created: function() {
-    axios.get("http://localhost:3000/api/items").then(
+    axios.get("/api/items").then(
       function(response) {
         console.log(response);
         this.items = response.data;
@@ -157,7 +157,7 @@ export default {
         price: this.price,
         supplier_id: this.supplier_id
       };
-      axios.post("http://localhost:3000/api/items/", params).then(
+      axios.post("/api/items/", params).then(
         function(response) {
           console.log("RESPONSE: ", response);
           this.items.push(response.data);
@@ -170,14 +170,14 @@ export default {
         name: this.updatedName
       };
       axios
-        .patch("http://localhost:3000/api/items/" + inputItem.id, params)
+        .patch("/api/items/" + inputItem.id, params)
         .then(function(response) {
           console.log(response.data);
           inputItem.name = response.data.name;
         });
     },
     deleteItem: function(inputItem) {
-      axios.delete("http://localhost:3000/api/items/" + inputItem.id).then(
+      axios.delete("/api/items/" + inputItem.id).then(
         function(response) {
           console.log(response.data);
           var index = this.items.indexOf(inputItem);
@@ -193,7 +193,7 @@ export default {
         item_id: currentItem.id,
         quantity: this.quantity
       };
-      axios.post("http://localhost:3000/api/carted_items/", params).then(
+      axios.post("/api/carted_items/", params).then(
         function(response) {
           console.log("RESPONSE: ", response);
         }.bind(this)
