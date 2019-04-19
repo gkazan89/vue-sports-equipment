@@ -5,8 +5,9 @@ import Silence from "./views/Silence.vue";
 import Signup from "./views/Signup.vue";
 import Login from "./views/Login.vue";
 import Logout from "./views/Logout.vue";
-import ItemsNew from "./views/ItemsNew.vue";
-import ItemsShow from "./views/ItemsShow.vue";
+// import ItemsNew from "./views/ItemsNew.vue";
+// import ItemsShow from "./views/ItemsShow.vue";
+import Faq from "./views/Faq.vue";
 
 Vue.use(Router);
 
@@ -32,15 +33,20 @@ export default new Router({
         import(/* webpackChunkName: "about" */ "./views/About.vue")
     },
     {
-      path: "/items/new",
-      name: "items-new",
-      component: ItemsNew
+      path: "/faq",
+      name: "Faq",
+      component: Faq
     },
-    {
-      path: "/items/:id",
-      name: "items-show",
-      component: ItemsShow
-    },
+    // {
+    //   path: "/items/new",
+    //   name: "items-new",
+    //   component: ItemsNew
+    // },
+    // {
+    //   path: "/items/:id",
+    //   name: "items-show",
+    //   component: ItemsShow
+    // },
     {
       path: "/signup",
       name: "signup",

@@ -28,6 +28,7 @@
         </div>
         <input type="submit" class="btn btn-primary" value="Submit" />
       </form>
+      <p>Your data will be shared with <strong>NO ONE</strong></p>
     </div>
   </div>
 </template>

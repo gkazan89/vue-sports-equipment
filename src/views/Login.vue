@@ -7,7 +7,7 @@
           <li class="text-danger" v-for="error in errors">{{ error }}</li>
         </ul>
         <div class="form-group">
-          <label>Email:</label>
+          <label>Username:</label>
           <input type="email" class="form-control" v-model="email" />
         </div>
         <div class="form-group">
